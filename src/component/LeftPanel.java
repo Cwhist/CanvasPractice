@@ -3,6 +3,7 @@ package component;
 import button.BurshButton;
 import button.ColorChooserButton;
 import button.EraseButton;
+import button.SizeBox;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +19,7 @@ public class LeftPanel {
         panel.add(new BurshButton(canvas).getButton());
         panel.add(new EraseButton(canvas).getButton());
         panel.add(new ColorChooserButton(canvas).getButton());
+        panel.add(new SizeBox(canvas).getComboBox());
     }
 
     public JPanel getPanel() {

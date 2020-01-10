@@ -25,7 +25,7 @@ public class CanvasDrawer {
         Graphics2D g = (Graphics2D) bufferCanvas.getDrawGraphics();
 
         g.setColor(color);
-        g.setStroke(new BasicStroke(3, BasicStroke.CAP_ROUND, 0));
+        g.setStroke(new BasicStroke(canvas.getBrushSize(), BasicStroke.CAP_ROUND, 0));
         g.drawLine(canvas.getPrevX(), canvas.getPrevY(), canvas.getX(), canvas.getY());
 
         g.dispose();

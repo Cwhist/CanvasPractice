@@ -28,7 +28,6 @@ public class CanvasMouseListener {
                 canvas.setPrevY(canvas.getY());
 
                 drawer.drawCanvas();
-                maker.make();
             }
         };
 

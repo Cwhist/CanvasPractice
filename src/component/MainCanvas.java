@@ -11,11 +11,13 @@ public class MainCanvas {
     private int y;
     private int prevX;
     private int prevY;
+    private int brushSize;
     private CanvasMouseListener listener;
 
     public MainCanvas() {
         canvas.setBackground(backgroundColor);
         canvas.setBounds(50, 0, 800, 600);
+        brushSize = 3;
 
         listener = new CanvasMouseListener(this);
     }
@@ -40,6 +42,8 @@ public class MainCanvas {
         return prevY;
     }
 
+    public int getBrushSize() { return brushSize; }
+
     public CanvasMouseListener getListener() {
         return listener;
     }
@@ -63,4 +67,6 @@ public class MainCanvas {
     public void setPrevY(int prevY) {
         this.prevY = prevY;
     }
+
+    public void setBrushSize(int brushSize) { this.brushSize = brushSize; }
 }

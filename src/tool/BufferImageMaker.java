@@ -30,7 +30,7 @@ public class BufferImageMaker {
         Graphics2D g = (Graphics2D) image.createGraphics();
         g.setBackground(canvas.getBackgroundColor());
         g.setColor(canvas.getListener().getDrawer().getColor());
-        g.setStroke(new BasicStroke(3, BasicStroke.CAP_ROUND, 0));
+        g.setStroke(new BasicStroke(canvas.getBrushSize(), BasicStroke.CAP_ROUND, 0));
         g.drawLine(canvas.getPrevX(), canvas.getPrevY(), canvas.getX(), canvas.getY());
         g.dispose();
 
