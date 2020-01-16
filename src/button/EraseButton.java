@@ -1,5 +1,7 @@
 package button;
 
+import tool.CanvasDrawer;
+import tool.CanvasMouseListener;
 import tool.ColorChanger;
 import component.MainCanvas;
 
@@ -14,7 +16,7 @@ public class EraseButton {
         button.setLocation(10, 50);
         button.setVisible(true);
         button.addActionListener(e -> {
-            ColorChanger.changeColor(canvas.getBackgroundColor(), canvas);
+            CanvasDrawer.setErase(true);
         });
     }
 

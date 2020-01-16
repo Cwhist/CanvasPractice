@@ -31,7 +31,10 @@ public class BufferImageMaker {
         g.setBackground(canvas.getBackgroundColor());
         g.setColor(canvas.getListener().getDrawer().getColor());
         g.setStroke(new BasicStroke(canvas.getBrushSize(), BasicStroke.CAP_ROUND, 0));
-        g.drawLine(canvas.getPrevX(), canvas.getPrevY(), canvas.getX(), canvas.getY());
+        if(canvas.getListener().getDrawer().getErase())
+            g.clearRect(canvas.getX()-canvas.getBrushSize()/2,canvas.getY()-canvas.getBrushSize()/2,canvas.getBrushSize(),canvas.getBrushSize());
+        else
+            g.drawLine(canvas.getPrevX(), canvas.getPrevY(), canvas.getX(), canvas.getY());
         g.dispose();
 
         try {
@@ -39,5 +42,13 @@ public class BufferImageMaker {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public BufferedImage getImage() { return image;}
+
+    public void initImage() {
+        Graphics2D g = (Graphics2D) image.getGraphics();
+        g.setBackground(canvas.getBackgroundColor());
+        g.clearRect(0,0,800,300);
     }
 }

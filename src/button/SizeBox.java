@@ -4,13 +4,12 @@ import component.MainCanvas;
 import tool.SizeChanger;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
 public class SizeBox {
     private JComboBox<Integer> comboBox;
 
     public SizeBox(MainCanvas canvas) {
-        comboBox = new JComboBox<Integer>();
+        comboBox = new JComboBox<>();
         addItem(comboBox);
         comboBox.setSize(30,30);
         comboBox.setLocation(10,70);

@@ -1,5 +1,6 @@
 package button;
 
+import tool.CanvasDrawer;
 import tool.ColorChanger;
 import component.MainCanvas;
 
@@ -17,6 +18,7 @@ public class BurshButton {
         button.setVisible(true);
         button.addActionListener(e -> {
             ColorChanger.changeColor(Color.BLACK, canvas);
+            CanvasDrawer.setErase(false);
         });
     }
 
