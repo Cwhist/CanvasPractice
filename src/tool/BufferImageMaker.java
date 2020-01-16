@@ -27,11 +27,10 @@ public class BufferImageMaker {
     }
 
     public void make() {
-        Graphics2D g = (Graphics2D) image.createGraphics();
+        Graphics2D g = image.createGraphics();
+
         g.setBackground(canvas.getBackgroundColor());
-        g.setColor(canvas.getListener().getDrawer().getColor());
-        g.setStroke(new BasicStroke(canvas.getBrushSize(), BasicStroke.CAP_ROUND, 0));
-        g.drawLine(canvas.getPrevX(), canvas.getPrevY(), canvas.getX(), canvas.getY());
+        canvas.getListener().getDrawer().writePixel(g);
         g.dispose();
 
         try {
@@ -39,5 +38,13 @@ public class BufferImageMaker {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public BufferedImage getImage() { return image; }
+
+    public void initImage() {
+        Graphics2D g = (Graphics2D) image.getGraphics();
+        g.setBackground((canvas.getBackgroundColor()));
+        g.clearRect(0,0,800,300);
     }
 }

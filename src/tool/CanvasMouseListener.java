@@ -1,7 +1,9 @@
 package tool;
 
 import component.MainCanvas;
+import component.SubCanvas;
 
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -11,11 +13,14 @@ public class CanvasMouseListener {
     private BufferImageMaker maker;
     private MouseAdapter mouseAdapter;
     private MouseMotionAdapter mouseMotionAdapter;
+    private SubCanvas subCanvas;
 
     public CanvasMouseListener(MainCanvas canvas) {
         drawer = new CanvasDrawer(canvas);
         maker = new BufferImageMaker(canvas);
         createListener(canvas);
+
+        maker.initImage();
     }
 
     public void createListener(MainCanvas canvas) {
@@ -28,6 +33,8 @@ public class CanvasMouseListener {
                 canvas.setPrevY(canvas.getY());
 
                 drawer.drawCanvas();
+                maker.make();
+                subCanvas.refreshImage();
             }
         };
 
@@ -41,6 +48,7 @@ public class CanvasMouseListener {
 
                 drawer.drawCanvas();
                 maker.make();
+                subCanvas.refreshImage();
             }
         };
 
@@ -51,4 +59,8 @@ public class CanvasMouseListener {
     public CanvasDrawer getDrawer() {
         return drawer;
     }
+
+    public BufferImageMaker getMaker() { return maker; }
+
+    public void setSubCanvas(SubCanvas subCanvas) { this.subCanvas = subCanvas; }
 }

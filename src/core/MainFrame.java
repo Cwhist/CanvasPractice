@@ -10,7 +10,7 @@ public class MainFrame extends JFrame {
     private LeftPanel leftPanel = new LeftPanel(rightPanel.getMainCanvas());
 
     public MainFrame() {
-        setSize(850, 600);
+        setSize(850, 700);
         setTitle("canvas");
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
